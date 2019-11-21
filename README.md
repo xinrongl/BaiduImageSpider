@@ -9,3 +9,4 @@ To run the crawler:
 ```cmd
 scrapy crawl spider -o filename.csv
 ```
+Use scrapy >= 0.16.0
