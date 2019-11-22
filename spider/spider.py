@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import json
+from time import sleep
 from urllib.parse import urlencode
 
 import scrapy
@@ -21,6 +22,7 @@ class Spider(scrapy.Spider):
                 url = "https://image.baidu.com/search/acjson?tn=resultjson_com&ipn=rj&ct=201326592&is=&fp=result&" + \
                       queryWord + "&cl=2&lm=-1&ie=utf-8&oe=utf-8&adpicid=&st=-1&z=&ic=0&" + \
                       word + "&s=&se=&tab=&width=&height=&face=0&istype=2&qc=&nc=1&fr=&pn=" + str(k * 30) + "&rn=30"
+                sleep(0.1)
                 yield scrapy.Request(url, callback=self.parse, meta=({'search': self.search_lists[i]}), dont_filter=True)
 
     def parse(self, response):
